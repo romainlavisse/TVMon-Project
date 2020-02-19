@@ -20,6 +20,7 @@ you have to install:
 * pandas
 * matplotlib
 * psutil
+* tkinter
 
 ### linux application
 ``` 
