@@ -3,6 +3,7 @@
 import os
 import subprocess
 import time
+from pathlib import Path
 
 # Transcode video file to suitable format
 
@@ -58,7 +59,7 @@ if case == 0:
 	# mode push RTP using RTSP without MPEG TS
 
 	#start a server
-	server="vlc {} --sout='#duplicate{{dst=display,dst=rtp{{dst=127.0.0.1,port=5004,sdp=file:///home/sofiene/MultiMedia/bbb.sdp}}}}' :sout-keep &".format(out_video)
+	server=("vlc {} --sout='#duplicate{{dst=display,dst=rtp{{dst=127.0.0.1,port=5004,sdp=file://"+ str(Path('video/bbb.sdp').resolve())+"}}}}' :sout-keep &").format(out_video)
 	
 	os.system(server)
 
@@ -68,14 +69,14 @@ if case == 0:
 	os.system(windowS)
 
 	# start a client
-	client = "vlc file:///home/sofiene/MultiMedia/bbb.sdp &"
+	client = "vlc file://" + str(Path('video/bbb.sdp').resolve()) + " &"
 	os.system(client)
 
 	
 	time.sleep(1)
 	windowC = "wmctrl -r bbb.sdp - Lecteur multimedia -e 1,800,600,480,320"
 	os.system(windowC)
-	
+	os.system("chmod ogu+x sondeTVm.py")
 	#call sondeTVm
 	subprocess.call(["./sondeTVm.py", "LR"])
 

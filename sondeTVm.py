@@ -15,6 +15,7 @@ with open('mos_file.csv', 'w') as csv_file:
 	csv_writer.writeheader()
 
 #start graphing process csv file and refresh parameter
+os.system("chmod ogu+x ./qualityGraph/plot_mos_video.py")
 os.system("./qualityGraph/plot_mos_video.py mos_file.csv 1000 &")
 
 traceFile = "touch test.pcap"
