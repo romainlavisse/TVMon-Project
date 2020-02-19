@@ -1,15 +1,12 @@
-#!/usr/bin/python
 
 
-import sys
+def lectureVideoPcap(fichierPcap):
 
-
-case = sys.argv[1]
 
 NombrPort = 0
 ListRes = []
 Video = False
-text = open(case, "r")
+text = open(fichierPcap, "r")
 Lines = text.readlines()
 
 
@@ -26,15 +23,10 @@ for line in Lines:
 			VideoRTPPayloadType="videoRTPPayloadType "+line.split(':')[1].split()[0]
 			Codec= "videoCodec "+line.split()[1].split('/')[0]
 			ClockRate= "videoClockRate "+line.split()[1].split('/')[1]
-	
-				  
-	
-	
+
 
 		if  line.split(':')[0]=="a=fmtp" and Video == True :
 			PLI = line.split(';')[1]
-	
-	
 
 			if PLI[21:23] == "0A" : #level 1.0
 					FrameRate="videoFrameRate 15.0"
@@ -74,4 +66,4 @@ ListRes.append(Resolution)
 ListRes.append(PortClient)
 
 
-print(ListRes)
+return ListRes
