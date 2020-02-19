@@ -1,6 +1,15 @@
 # TVMon-Project
 
 ## Requirements 
+### access right 
+
+to add the access right for tshark 
+you have to do this: 
+```
+sudo dpkg-reconfigure wireshark-commun
+sudo adduser $USER wireshark
+```
+and reboot your computer
 
 ### python librairys
 ```
