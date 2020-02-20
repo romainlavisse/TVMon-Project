@@ -18,7 +18,7 @@ Then add a line to opened file /etc/sudoers
 
 username ALL=(ALL) NOPASSWD: /sbin/tc
 
-### python librairys
+### python librarys
 ```
 pip install [libName]
 ```
