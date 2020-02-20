@@ -11,7 +11,14 @@ sudo adduser $USER wireshark
 ```
 and reboot your computer
 
-### python librairys
+### access right to TC and NETEM 
+do that
+$sudo visudo
+Then add a line to opened file /etc/sudoers  
+
+username ALL=(ALL) NOPASSWD: /sbin/tc
+
+### python librarys
 ```
 pip install [libName]
 ```
@@ -20,6 +27,7 @@ you have to install:
 * pandas
 * matplotlib
 * psutil
+* tkinter
 
 ### linux application
 ``` 

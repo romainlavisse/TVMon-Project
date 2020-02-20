@@ -51,6 +51,9 @@ def transcode(in_video,out_video,codec,form):
 #cmd = transcode(in_video, out_video, vcodec, vform)
 #os.system(cmd)
 
+plr = "10%"
+
+
 # Test for LR - Low Resolution sans TS, QCIF (176x144, 30fps), QVGA (320x240, 30fps), HVGA (480x320, 30fps)
 # Tranmission over RTP using RTSP/SDP protocols. Two video codecs may be used H.264 et MP4
 case = 0
@@ -76,6 +79,16 @@ if case == 0:
 	time.sleep(1)
 	windowC = "wmctrl -r bbb.sdp - Lecteur multimedia -e 1,800,600,480,320"
 	os.system(windowC)
+	
+	time.sleep(5)
+	# add packet loss
+	init = "sudo tc qdisc del dev lo root"
+	os.system(init)
+
+	loss = "sudo tc qdisc add dev lo root netem loss {}".format(plr)
+	os.system(loss)
+	
+	
 	os.system("chmod ogu+x sondeTVm.py")
 	#call sondeTVm
 	subprocess.call(["./sondeTVm.py", "LR"])
