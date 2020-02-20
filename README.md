@@ -11,6 +11,13 @@ sudo adduser $USER wireshark
 ```
 and reboot your computer
 
+to enable start tc netem from python:
+
+$visudo
+add a line to file /etc/sudoers  
+
+username ALL=(ALL) NOPASSWD: /sbin/tc
+
 ### python librairys
 ```
 pip install [libName]
