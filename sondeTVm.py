@@ -34,11 +34,11 @@ for index in range(1, 3):
 		print "mode RTSP/SDP"
 			
 		# call model to calculate MOS
-		subprocess.call(["./vmodel/simple_vmodel.py", str(index), "test.pcap", 'mos_file.csv'])	
+		subprocess.call(["./vmodel/simple_vmodel.py", str(index), "test.pcap", "test.pre", 'mos_file.csv'])	
 
 	elif case == "HR":
 		# rtp over mpeg ts 
 		print "mode RTP"
 
 		#call model to calculate MOS
-		subprocess.call(["./vmodel/simple_vmodel.py", str(index), "test.pcap"])
+		subprocess.call(["./vmodel/simple_vmodel.py", str(index), "test.pcap", "test.pre"])
