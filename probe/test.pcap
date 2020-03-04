@@ -1,0 +1,128 @@
+RTSP/1.0 200 OK
+Server: VLC/3.0.8
+Content-Length: 0
+Cseq: 2
+Public: DESCRIBE,SETUP,TEARDOWN,PLAY,PAUSE,GET_PARAMETER
+
+RTSP/1.0 200 OK
+Server: VLC/3.0.8
+Date: Tue, 26 Nov 2019 21:21:00 GMT
+Content-Type: application/sdp
+Content-Base: rtsp://127.0.0.1:8554/
+Content-Length: 539
+Cache-Control: no-cache
+Cseq: 3
+
+v=0
+o=- 16251263152824518587 16251263152824518587 IN IP4 CafeKrem
+s=Unnamed
+i=N/A
+c=IN IP4 0.0.0.0
+t=0 0
+a=tool:vlc 3.0.8
+a=recvonly
+a=type:broadcast
+a=charset:UTF-8
+a=control:rtsp://127.0.0.1:8554/
+m=audio 0 RTP/AVP 14
+b=AS:128
+b=RR:0
+a=rtpmap:14 MPA/90000/2
+a=control:rtsp://127.0.0.1:8554/trackID=2
+m=video 0 RTP/AVP 96
+b=RR:0
+a=rtpmap:96 H264/90000
+a=fmtp:96 packetization-mode=1;profile-level-id=640015;sprop-parameter-sets=Z2QAFazZQbH+TwFqAgICgAAAMgAAC7VHixbL,aOvjyyLA;
+a=control:rtsp://127.0.0.1:8554/trackID=3
+RTSP/1.0 200 OK
+Server: VLC/3.0.8
+Date: Tue, 26 Nov 2019 21:21:00 GMT
+Transport: RTP/AVP/UDP;unicast;client_port=40488-40489;server_port=42445-42446;ssrc=70547BA8;mode=play
+Session: f42776abf407e936;timeout=60
+Content-Length: 0
+Cache-Control: no-cache
+Cseq: 4
+
+RTSP/1.0 200 OK
+Server: VLC/3.0.8
+Date: Tue, 26 Nov 2019 21:21:00 GMT
+Transport: RTP/AVP/UDP;unicast;client_port=57948-57949;server_port=35278-35279;ssrc=37851DE6;mode=play
+Session: f42776abf407e936;timeout=60
+Content-Length: 0
+Cache-Control: no-cache
+Cseq: 5
+
+RTSP/1.0 200 OK
+Server: VLC/3.0.8
+Date: Tue, 26 Nov 2019 21:21:00 GMT
+RTP-Info: url=rtsp://127.0.0.1:8554/trackID=2;seq=6523;rtptime=2194391877, url=rtsp://127.0.0.1:8554/trackID=3;seq=36737;rtptime=2194391877
+Range: npt=61.452948-
+Session: f42776abf407e936;timeout=60
+Content-Length: 0
+Cache-Control: no-cache
+Cseq: 6
+
+RTSP/1.0 200 OK
+Server: VLC/3.0.8
+Date: Tue, 26 Nov 2019 21:21:58 GMT
+Session: f42776abf407e936;timeout=60
+Content-Length: 0
+Cache-Control: no-cache
+Cseq: 7
+
+RTSP/1.0 200 OK
+Server: VLC/3.0.8
+Date: Tue, 26 Nov 2019 21:22:56 GMT
+Session: f42776abf407e936;timeout=60
+Content-Length: 0
+Cache-Control: no-cache
+Cseq: 8
+
+RTSP/1.0 200 OK
+Server: VLC/3.0.8
+Date: Tue, 26 Nov 2019 21:23:54 GMT
+Session: f42776abf407e936;timeout=60
+Content-Length: 0
+Cache-Control: no-cache
+Cseq: 9
+
+RTSP/1.0 200 OK
+Server: VLC/3.0.8
+Date: Tue, 26 Nov 2019 21:24:52 GMT
+Session: f42776abf407e936;timeout=60
+Content-Length: 0
+Cache-Control: no-cache
+Cseq: 10
+
+RTSP/1.0 200 OK
+Server: VLC/3.0.8
+Date: Tue, 26 Nov 2019 21:25:50 GMT
+Session: f42776abf407e936;timeout=60
+Content-Length: 0
+Cache-Control: no-cache
+Cseq: 11
+
+RTSP/1.0 200 OK
+Server: VLC/3.0.8
+Date: Tue, 26 Nov 2019 21:26:48 GMT
+Session: f42776abf407e936;timeout=60
+Content-Length: 0
+Cache-Control: no-cache
+Cseq: 12
+
+RTSP/1.0 200 OK
+Server: VLC/3.0.8
+Date: Tue, 26 Nov 2019 21:27:46 GMT
+Session: f42776abf407e936;timeout=60
+Content-Length: 0
+Cache-Control: no-cache
+Cseq: 13
+
+RTSP/1.0 200 OK
+Server: VLC/3.0.8
+Date: Tue, 26 Nov 2019 21:28:07 GMT
+Session: f42776abf407e936;timeout=60
+Content-Length: 0
+Cache-Control: no-cache
+Cseq: 14
+
