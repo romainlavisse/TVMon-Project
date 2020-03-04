@@ -1,0 +1,15 @@
+modelMode	CC
+pcapFileName	PNAMS_LR_TV24.pcap
+sdpFileName	tr03_src04_hrc19_v01.sdp
+bufFileName	N/A
+transportFormat	RTP/UDP/IP
+videoCodec	H264
+videoCodecProfile	BASELINE
+videoResolution	QVGA
+scanningType	PROGRESSIVE
+videoFrameRate	15
+videoPLC	N/A
+clientBufferBehaviour	N/A
+markerBit	END
+videoDestPort	1234
+videoRTPPayloadType	96

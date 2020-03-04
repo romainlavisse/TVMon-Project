@@ -2,6 +2,7 @@
 
 import math
 import os.path
+import sys
 import csv
 
 index = sys.argv[1]

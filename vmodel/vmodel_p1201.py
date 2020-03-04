@@ -2,12 +2,15 @@
 
 import math
 import os.path
+import sys
 import csv
 
 index = sys.argv[1]
 pcap_name = sys.argv[2]
 pre_name = sys.argv[3]
 csv_name = sys.argv[4]
+
+buf_name = ""
 
 pre_file = open(pre_name, "r")
 
@@ -73,20 +76,20 @@ with  open(pcap_name, "rb") as pcap_file:
 		pkt = pcap_file.read(16)
 		if not pkt:break
 			
-		b1 = pkt[9]
-		b2 = pkt[8]
-		lon = b1 << 8 | b2
+		b1 = bytearray(pkt[9])
+		b2 = bytearray(pkt[8])
+		lon = b1[0] << 8 | b2[0]
 
 		data = pcap_file.read(lon)
 		
 		# longueur du datagramme UDP
-		b1 = data[udpoffset + 4]
-		b2 = data[udpoffset + 5]
-		udplon = b1 << 8 | b2
+		b1 = bytearray(data[udpoffset + 4])
+		b2 = bytearray(data[udpoffset + 5])
+		udplon = b1[0] << 8 | b2[0]
 
-		b1 = data[udpoffset + 2]
-		b2 = data[udpoffset + 3]
-		udpport = b1 << 8 | b2
+		b1 = bytearray(data[udpoffset + 2])
+		b2 = bytearray(data[udpoffset + 3])
+		udpport = b1[0] << 8 | b2[0]
 
 		#print "len:", lon, "lenght UDP:", udplon, "udp port:", udpport
 
@@ -95,18 +98,18 @@ with  open(pcap_name, "rb") as pcap_file:
 	
 		if udpport == port:
 			# read le sequence number du paquet RTP
-			b1 = data[rtpoffset + 2]
-			b2 = data[rtpoffset + 3]
-			sn.append(b1 << 8 | b2)
+			b1 = bytearray(data[rtpoffset + 2])
+			b2 = bytearray(data[rtpoffset + 3])
+			sn.append(b1[0] << 8 | b2[0])
 			#print 'seqeunce number:', sn[nb]
 
 
 			# read le timestamp du paquet RTP			
-			b1 = data[rtpoffset + 4]
-			b2 = data[rtpoffset + 5]
-			b3 = data[rtpoffset + 6]
-			b4 = data[rtpoffset + 7]
-			ts.append(b1 << 24 | b2 << 16 | b3 << 8 | b4)
+			b1 = bytearray(data[rtpoffset + 4])
+			b2 = bytearray(data[rtpoffset + 5])
+			b3 = bytearray(data[rtpoffset + 6])
+			b4 = bytearray(data[rtpoffset + 7])
+			ts.append(b1[0] << 24 | b2[0] << 16 | b3[0] << 8 | b4[0])
 			#print 'timestamp:', ts[nb]
 	
 
@@ -116,8 +119,8 @@ with  open(pcap_name, "rb") as pcap_file:
 		
 
 			# read MB
-			b1 = data[rtpoffset + 1]
-			mb.append(b1 >> 7)
+			b1 = bytearray(data[rtpoffset + 1])
+			mb.append(b1[0] >> 7)
 			#print 'mark bit:', mb[nb]
 
 
@@ -620,7 +623,7 @@ MOSP = MOSC - DP
 
 print ("DP:", DP, "\nMOSP:", MOSP)
 
-buf_name = "./vecteurs/P1201_LR_TV"+trace+".buf"
+#buf_name = "./vecteurs/P1201_LR_TV"+trace+".buf"
 
 if os.path.isfile(buf_name):
 
