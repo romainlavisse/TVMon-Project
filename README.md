@@ -13,7 +13,9 @@ and reboot your computer
 
 ### access right to TC and NETEM 
 do that
+```
 $sudo visudo
+```
 Then add a line to opened file /etc/sudoers  
 
 username ALL=(ALL) NOPASSWD: /sbin/tc
