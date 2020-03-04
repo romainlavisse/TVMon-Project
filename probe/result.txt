@@ -1,0 +1,6 @@
+videoCodec  H264
+videoClockRate  90000
+videoRTPPayloadType  96
+videoFrameRate  30.0
+videoResolution  HVGA
+PortClient 40488
