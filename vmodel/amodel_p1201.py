@@ -97,28 +97,28 @@ with  open(pcap_name, "rb") as pcap_file:
 		pkt = pcap_file.read(16)
 		if not pkt:break
 			
-		b1 = pkt[9]
-		b2 = pkt[8]
+		b1 = bytearray(pkt[9])
+		b2 = bytearray(pkt[8])
 
-		lon = b1 << 8 | b2
+		lon = b1[0] << 8 | b2[0]
 		
 		#print("b1:", b1, "\tb2:", b2, "\tlon:", lon)
 
 		data = pcap_file.read(lon)
 		
 		# longueur du datagramme UDP
-		b1 = data[udpoffset + 4]
-		b2 = data[udpoffset + 5]
-		udplon = b1 << 8 | b2
+		b1 = bytearray(data[udpoffset + 4])
+		b2 = bytearray(data[udpoffset + 5])
+		udplon = b1[0] << 8 | b2[0]
 		#print "nb: ", nb, "longueur totale:", lon, "lenght UDP:", udplon
 
 
 		# read le timestamp du paquet RTP			
-		b1 = data[rtpoffset + 4]
-		b2 = data[rtpoffset + 5]
-		b3 = data[rtpoffset + 6]
-		b4 = data[rtpoffset + 7]
-		ts.append(b1 << 24 | b2 << 16 | b3 << 8 | b4)
+		b1 = bytearray(data[rtpoffset + 4])
+		b2 = bytearray(data[rtpoffset + 5])
+		b3 = bytearray(data[rtpoffset + 6])
+		b4 = bytearray(data[rtpoffset + 7])
+		ts.append(b1[0] << 24 | b2[0] << 16 | b3[0] << 8 | b4[0])
 		#print 'timestamp:', hex(ts[nb])
 
 		if nb >= 1: 
@@ -129,9 +129,9 @@ with  open(pcap_name, "rb") as pcap_file:
 				a_nts = a_nts + 1
 
 		# read le sequence number du paquet RTP
-		b1 = data[rtpoffset + 2]
-		b2 = data[rtpoffset + 3]
-		sn.append(b1 << 8 | b2)
+		b1 = bytearray(data[rtpoffset + 2])
+		b2 = bytearray(data[rtpoffset + 3])
+		sn.append(b1[0] << 8 | b2[0])
 		#print 'seqeunce number:', hex(sn[nb])
 
 		# compute length of each audio RTP paquet
